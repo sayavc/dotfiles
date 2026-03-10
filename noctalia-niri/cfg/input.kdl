@@ -1,0 +1,16 @@
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "grp:caps_toggle, caps:none"
+        }
+        numlock
+    }
+     mouse {
+	    accel-speed 0.5
+	    accel-profile "flat"
+
+    }
+    focus-follows-mouse max-scroll-amount="0%"
+
+}

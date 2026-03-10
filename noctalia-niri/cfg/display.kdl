@@ -1,0 +1,3 @@
+output "monitor" {
+    mode "?x?@?.000"
+}
