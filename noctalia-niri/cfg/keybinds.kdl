@@ -1,10 +1,9 @@
+// Keybindings 
+// https://github.com/YaLTeR/niri/wiki/Configuration:
 
-    // Keybindings 
-    // https://github.com/YaLTeR/niri/wiki/Configuration:
-
-    // noctalia-shell keybinds 
-    // https://github.com/YaLTeR/niri/wiki/Configuration:
-    binds {
+// noctalia-shell keybinds 
+// https://github.com/YaLTeR/niri/wiki/Configuration:
+binds {
 
         // Applications
         Mod+Return   { spawn "foot"; }
@@ -90,27 +89,33 @@
          Mod+Ctrl+9                          { move-column-to-workspace 9; }
 
          // Other 
-         Mod+Tab         { focus-workspace-previous; }
+         Mod+Tab  { focus-workspace-previous; }
 
-         Mod+Minus { set-column-width "-10%"; }
-         Mod+Shift+Minus { set-window-height "-10%"; }
-         Mod+Equal { set-column-width "+10%"; }
-         Mod+Shift+Equal { set-window-height "+10%"; }
+         Mod+Minus            { set-column-width "-10%"; }
+         Mod+Shift+Minus      { set-window-height "-10%"; }
+         Mod+Equal            { set-column-width "+10%"; }
+         Mod+Shift+Equal      { set-window-height "+10%"; }
 
          // Modes
-         Mod+T { toggle-window-floating; }
-         Mod+F { maximize-column; }
-         Mod+Shift+F { fullscreen-window; }
+         Mod+T                { toggle-window-floating; }
+         Mod+F                { maximize-column; }
+         Mod+Shift+F          { fullscreen-window; }
 
          // Screenshots
-
-         Print { screenshot; }
-         Shift+Print { screenshot-window; }
+         Print                { screenshot; }
+         Shift+Print          { screenshot-window; }
 
          // Panic
          Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
          // Power 
          Ctrl+Alt+Delete { quit; } // Quit session
-         Mod+Shift+P    { power-off-monitors; } // to watch obscenities 
+         Mod+Shift+P     { power-off-monitors; } // to watch obscenities 
+
+         // Noctalia-shell plugins keybinds 
+         // Clipper 
+         //Mod+V         { spawn-sh "qs -c noctalia-shell ipc call plugin:clipper toggle"; }
+         // Kde-connect 
+         //?           { spawn-sh "qs -c noctaliakshell ipc call plugin:kde-connect refresh"; }
+
 }
