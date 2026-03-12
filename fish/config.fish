@@ -15,3 +15,4 @@ fish_add_path $HOME/.cargo/bin
 alias unlock='sudo rm /var/lib/pacman/db.lck'
 alias clear='clear && fastfetch'
 alias clearn='/bin/clear'
+alias sudo='doas'

@@ -2,7 +2,7 @@ input {
     keyboard {
         xkb {
             layout "us,ru"
-            options "grp:lctrl_toggle,ctrl:nocaps,caps:none"
+            options "grp:caps_toggle,caps:none"
         }
         numlock
     }

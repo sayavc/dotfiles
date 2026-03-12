@@ -102,8 +102,9 @@ binds {
          Mod+Shift+F          { fullscreen-window; }
 
          // Screenshots
-         Print                { screenshot; }
-         Shift+Print          { screenshot-window; }
+
+         Mod+Z                { screenshot; }
+         Shift+Mod+Z          { screenshot-window; }
 
          // Panic
          Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
@@ -114,7 +115,7 @@ binds {
 
          // Noctalia-shell plugins keybinds 
          // Clipper 
-         //Mod+V         { spawn-sh "qs -c noctalia-shell ipc call plugin:clipper toggle"; }
+         Mod+V         { spawn-sh "qs -c noctalia-shell ipc call plugin:clipper toggle"; }
          // Kde-connect 
          //?           { spawn-sh "qs -c noctaliakshell ipc call plugin:kde-connect refresh"; }
 
