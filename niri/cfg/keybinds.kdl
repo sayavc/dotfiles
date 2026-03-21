@@ -89,6 +89,11 @@ binds {
          Mod+Ctrl+8                          { move-column-to-workspace 8; }
          Mod+Ctrl+9                          { move-column-to-workspace 9; }
          */
+         Mod+1 { focus-workspace 1; }
+         Mod+2 { focus-workspace 10; }
+
+         Mod+Ctrl+1 { move-column-to-workspace 1; }
+         Mod+Ctrl+2 { move-column-to-workspace 10; }
          // Other 
          Mod+Tab  { focus-workspace-previous; }
 

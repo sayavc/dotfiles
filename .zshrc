@@ -9,6 +9,7 @@ alias ls='eza --icons'
 alias sudo='doas'
 alias lofi="mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
 alias aria="aria2c --max-connection-per-server=16 --split=16"
+hasdir() { 7z l "$1" | grep -m1 ' D\.'; }
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
