@@ -22,3 +22,8 @@
         opacity 0.96
 
     }
+    window-rule {
+        match app-id="imv"
+        open-floating true 
+        opacity 1.00
+    }
