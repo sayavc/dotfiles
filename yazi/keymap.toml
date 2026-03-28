@@ -1,5 +1,6 @@
 [manager]
 keymap = [
+  { on = "<F5>", run = "shell --block 'wl-paste -t image/png > /tmp/pasted.png'", desc = "Paste clipboard" },
   { on = "k",          run = "arrow -1" },
   { on = "j",          run = "arrow 1" },
   { on = "<Up>",       run = "arrow -1" },
@@ -180,4 +181,8 @@ keymap = [
   { on = "<Up>",  run = "arrow -1" },
   { on = "<Down>",run = "arrow 1" },
   { on = "/",     run = "filter" },
+]
+[mgr]
+prepend_keymap = [
+  { on = "<F5>", run = ["shell --block -- sh -c 'wl-paste -t image/png > /tmp/clip.png'", "reveal /tmp/clip.png", "open"], desc = "Paste clipboard" },
 ]
