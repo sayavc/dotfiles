@@ -9,6 +9,7 @@
         QT_QPA_PLATFORMTHEME "gtk3"
         ELECTRON_OZONE_PLATFORM_HINT "auto"
         GNOME_KEYRING_CONTROL "/run/user/1000/keyring"
+        QS_ICON_THEME "Papirus"
     }
 
     debug {

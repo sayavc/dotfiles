@@ -7,11 +7,11 @@ binds {
 
         // Applications
         Mod+Return                                                 { spawn "foot"; }
-        Alt+Space                                                  { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+        Alt+Space                                                  { spawn-sh "noctalia-shell ipc call launcher toggle"; }
         Mod+B                                                      { spawn "librewolf"; }
-        Mod+L                                                      { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-        Mod+Shift+Q                                                { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
-        Mod+W                                                      { spawn "sh" "-c" "qs -c noctalia-shell ipc call wallpaper toggle"; }
+        Mod+L                                                      { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+        Mod+Shift+Q                                                { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+        Mod+W                                                      { spawn "sh" "-c" "noctalia-shell ipc call wallpaper toggle"; }
 
 
         Mod+E {spawn "nautilus"; }
@@ -19,18 +19,18 @@ binds {
         Mod+P {spawn "/home/saya/.local/bin/pavucontrol-dark"; } // Just dark pavucontrol
 
          // Media Controls PS: copy+paste lol  
-         XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
-         XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
-         XF86AudioMute                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
-         XF86AudioMicMute                    allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
-         XF86AudioNext                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media next"; }
-         XF86AudioPrev                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
-         XF86AudioPlay                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
-         XF86AudioPause                      allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
+         XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume increase"; }
+         XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume decrease"; }
+         XF86AudioMute                       allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
+         XF86AudioMicMute                    allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume muteInput"; }
+         XF86AudioNext                       allow-when-locked=true { spawn-sh "noctalia-shell ipc call media next"; }
+         XF86AudioPrev                       allow-when-locked=true { spawn-sh "noctalia-shell ipc call media previous"; }
+         XF86AudioPlay                       allow-when-locked=true { spawn-sh "noctalia-shell ipc call media playPause"; }
+         XF86AudioPause                      allow-when-locked=true { spawn-sh "noctalia-shell ipc call media playPause"; }
 
          // ─── Brightness Controls ───
-         XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
-         XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
+         XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
+         XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness decrease"; }
 
          // Window controls 
          Mod+Q { close-window; }
@@ -94,7 +94,7 @@ binds {
          Mod+Shift+Minus                                            { set-window-height "-10%"; }
          Mod+Equal                                                  { set-column-width "+10%"; }
          Mod+Shift+Equal                                            { set-window-height "+10%"; }
-         Alt+Z                                                      { spawn "wtype" "💜"; }
+         Alt+P                                                      { spawn "wtype" "💜"; }
 
          // Modes
          Mod+T                                                      { toggle-window-floating; }
@@ -117,6 +117,11 @@ binds {
 
          // Noctalia-shell plugins keybinds 
          // Clipper 
-         Mod+V                                                      { spawn-sh "qs -c noctalia-shell ipc call plugin:clipper toggle"; }
+         Mod+V                                                      { spawn-sh "noctalia-shell ipc call plugin:clipper toggle"; }
+
+         // Chamel 
+         Alt+Z                                                      { spawn-sh "chamel toggle"; }
+         Alt+X                                                      { spawn-sh "chamel clear-and-deactivate"; }
+         Alt+C                                                      { spawn-sh "chamel undo"; }
 
 }
