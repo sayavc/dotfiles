@@ -2,14 +2,20 @@
         geometry-corner-radius 20 // Set every window radius to 20
         clip-to-geometry true
         draw-border-with-background false
+        background-effect {
+            blur true
+            xray true
+            noise 0.03
+            saturation 1.2
+        }
     }
     window-rule {
         match is-active=false
-        opacity 0.96
+        opacity 0.85
     }
     window-rule {
         match is-active=true
-        opacity 0.98
+        opacity 0.90
     }
 
     layer-rule {
