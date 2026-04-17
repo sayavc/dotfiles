@@ -11,7 +11,11 @@ binds {
         Mod+B                                                      { spawn "librewolf"; }
         Mod+L                                                      { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
         Mod+Shift+Q                                                { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
-        Mod+W                                                      { spawn "sh" "-c" "noctalia-shell ipc call wallpaper toggle"; }
+        Mod+C                                                      { spawn "sh" "-c" "noctalia-shell ipc call wallpaper toggle"; }
+        XF86Back                                                   { spawn "librewolf"; }
+        XF86Forward                                                { spawn "lutris"; }
+        Cancel                                                     { spawn "materialgram"; }
+        XF86Reload                                                 { spawn "steam"; }
 
 
         Mod+E {spawn "nautilus"; }
@@ -35,15 +39,15 @@ binds {
          // Window controls 
          Mod+Q { close-window; }
 
-         Mod+Left                                                   { focus-column-left; }
-         Mod+Right                                                  { focus-column-right; }
-         Mod+Down                                                   { focus-workspace-down; }
-         Mod+Up                                                     { focus-workspace-up; }
+         Alt+A                                                     { focus-column-left; }
+         Alt+S                                                     { focus-column-right; }
+         Alt+Z                                                     { focus-workspace-down; }
+         Alt+X                                                     { focus-workspace-up; }
 
-         Mod+Ctrl+Left                                              { move-column-left; }
-         Mod+Ctrl+Right                                             { move-column-right; }
-         Mod+Ctrl+Down                                              { move-window-down-or-to-workspace-down; }
-         Mod+Ctrl+Up                                                { move-window-up-or-to-workspace-up; }
+         Alt+Shift+A                                                { move-column-left; }
+         Alt+Shift+S                                                { move-column-right; }
+         Alt+Shift+Z                                                { move-window-down-or-to-workspace-down; }
+         Alt+Shift+X                                                { move-window-up-or-to-workspace-up; }
 
          /*Mod+Shift+Ctrl+Left                                      { move-column-to-monitor-left; }
          Mod+Shift+Ctrl+Right                                       { move-column-to-monitor-right; }
@@ -119,9 +123,8 @@ binds {
          // Clipper 
          Mod+V                                                      { spawn-sh "noctalia-shell ipc call plugin:clipper toggle"; }
 
-         // Chamel 
+         /* Chamel 
          Alt+Z                                                      { spawn-sh "chamel toggle"; }
          Alt+X                                                      { spawn-sh "chamel clear-and-deactivate"; }
-         Alt+C                                                      { spawn-sh "chamel undo"; }
-
+         Alt+C                                                      { spawn-sh "chamel undo"; } */ 
 }
