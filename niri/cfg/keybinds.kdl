@@ -6,12 +6,13 @@
 binds {
 
         // Applications
-        Mod+Return                                                 { spawn "foot"; }
+        Alt+T                                                      { spawn "foot"; }
         Alt+Space                                                  { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+        Mod+F1                                                     { spawn-sh "noctalia-shell ipc call notifications toggleDND"; }
         Mod+B                                                      { spawn "librewolf"; }
         Mod+L                                                      { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
         Mod+Shift+Q                                                { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
-        Mod+C                                                      { spawn "sh" "-c" "noctalia-shell ipc call wallpaper toggle"; }
+        Mod+W                                                      { spawn "sh" "-c" "noctalia-shell ipc call wallpaper toggle"; }
         XF86Back                                                   { spawn "librewolf"; }
         XF86Forward                                                { spawn "lutris"; }
         Cancel                                                     { spawn "materialgram"; }
@@ -94,10 +95,10 @@ binds {
          // Other 
          Mod+Tab                                                    { focus-workspace-previous; }
 
-         Mod+Minus                                                  { set-column-width "-10%"; }
-         Mod+Shift+Minus                                            { set-window-height "-10%"; }
-         Mod+Equal                                                  { set-column-width "+10%"; }
-         Mod+Shift+Equal                                            { set-window-height "+10%"; }
+         Alt+Ctrl+S                                                 { set-column-width "-10%"; }
+         Alt+Ctrl+Z                                                 { set-window-height "-10%"; }
+         Alt+Ctrl+A                                                 { set-column-width "+10%"; }
+         Alt+Ctrl+X                                                 { set-window-height "+10%"; }
          Alt+P                                                      { spawn "wtype" "💜"; }
 
          // Modes
@@ -120,11 +121,6 @@ binds {
          Mod+Shift+X                                                { power-off-monitors; } // to watch obscenities 
 
          // Noctalia-shell plugins keybinds 
-         // Clipper 
+         // Clpper 
          Mod+V                                                      { spawn-sh "noctalia-shell ipc call plugin:clipper toggle"; }
-
-         /* Chamel 
-         Alt+Z                                                      { spawn-sh "chamel toggle"; }
-         Alt+X                                                      { spawn-sh "chamel clear-and-deactivate"; }
-         Alt+C                                                      { spawn-sh "chamel undo"; } */ 
 }

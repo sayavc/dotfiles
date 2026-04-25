@@ -22,15 +22,26 @@
         url = "github:sayavc/niux";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+        url = "github:sodiboo/niri-flake";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+    xwayland-satellite = {
+        url = "github:Supreeeme/xwayland-satellite";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { nixpkgs, home-manager, nix-cachyos-kernel, nur, niux, ... }: {
+  outputs = { nixpkgs, home-manager, nix-cachyos-kernel, nur, niux, niri, xwayland-satellite, ... }: {
     nixosConfigurations.saya-nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit xwayland-satellite; };
       modules = [
         ./configuration.nix
+        niri.nixosModules.niri
+        ({ pkgs, ...}: { nixpkgs.overlays = [ niri.overlays.niri ]; })
         {
           nixpkgs.overlays = [ 
           nix-cachyos-kernel.overlays.default

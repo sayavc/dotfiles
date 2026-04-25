@@ -6,15 +6,38 @@
     home.homeDirectory = "/home/saya";
 
     home.packages = with pkgs; [
-      yazi
       proton-vpn-cli
+      nautilus
+      portablemc
+      wayvnc
+      wl-clipboard
+      atop
+      gallery-dl
+      gamescope
+      gamemode
+      clang
+      mold
+      cargo-generate
+      radeontop
+      nh
+      flatpak
+      jdk17
+      apktool
+      parted
+      gparted
+      dust
+      duf
+      nvd
+      veracrypt
+      ffmpeg
+      file
+      yazi
       tree
       jq
       tmux
       chameleos
       mpv
       btop
-      xwayland-satellite
       fastfetch
       materialgram
       librewolf
@@ -33,6 +56,14 @@
       alsa-lib
       inputs.niux.packages.${pkgs.system}.default 
       home-manager
+    ];
+    nixpkgs.overlays = [
+    (final: prev: {
+        openldap = prev.openldap.overrideAttrs (_: {
+            doCheck = false;
+            doInstallCheck = false;
+            });
+     })
     ];
 
     programs.git = {
@@ -57,16 +88,20 @@
       };
       initContent = ''
         export PATH="$HOME/.local/bin:$PATH"
+        export PATH="$HOME/.cargo/bin:$PATH"
         eval "$(zoxide init zsh)"
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         autoload -U compinit && compinit
         zstyle ':completion:*' menu select
 	    zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-        zmodload zsh/zprof
+        compdef _eza eza ls
 	    bindkey "\e[1;2D" backward-word
 	    bindkey "\e[1;2C" forward-word
         bindkey "^[OA" history-substring-search-up
         bindkey "^[OB" history-substring-search-down
+        _saved_dir=""
+        pin() { _saved_dir=$PWD; echo "pinned $_saved_dir" }
+        jump() { [[ -z "$_saved_dir" ]] && echo "nothing pinned" && return; cd "$_saved_dir" }
       '';
       plugins = [
         { name = "powerlevel10k"; src = pkgs.zsh-powerlevel10k; file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme"; }
@@ -75,10 +110,11 @@
         { name = "zsh-history-substring-search"; src = pkgs.zsh-history-substring-search; file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh"; }
       ];
       shellAliases = {
-        ls = "eza --icons";
+        ls = "eza --icons=auto";
         sudo = "doas";
         lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
         aria = "aria2c --max-connection-per-server=16 --split=16";
+        "minecraft-fabric_base" = ''portablemc --main-dir /home/saya/.minecraft/instances/fabric-base start fabric:1.20.5 -u Vazhniygoose --jvm-arg="-Xmx4G" --jvm-arg="-Xms2G" --jvm-arg="-XX:+UseG1GC"'';
       };
     };
 }

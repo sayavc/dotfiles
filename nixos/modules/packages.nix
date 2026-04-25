@@ -1,6 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, xwayland-satellite, ... }:
 {
 environment.systemPackages = with pkgs; [
+     proton-vpn-cli
      ntfs3g
      wget
      neovim
@@ -15,6 +16,7 @@ environment.systemPackages = with pkgs; [
      gcc
      appimage-run
      icu
+     xwayland-satellite.packages.${pkgs.system}.default
    ];
 environment.variables = {
     XCURSOR_THEME = "Bibata-Modern-Classic";

@@ -2,7 +2,7 @@
 {
 users.users.saya = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; 
+    extraGroups = [ "wheel" "keyd" ]; 
 };
 users.users.saya.shell = pkgs.zsh;
 }

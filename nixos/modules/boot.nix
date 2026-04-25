@@ -4,6 +4,7 @@
 boot.loader.grub.enable = true;
 boot.loader.grub.device = "/dev/sda";
 boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+boot.kernelModules = [ "ntsync" ];
 
 zramSwap = {
     enable = true;

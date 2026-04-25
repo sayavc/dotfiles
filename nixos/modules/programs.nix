@@ -9,6 +9,7 @@ programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
 };
+programs.lazygit.enable = true;
 programs.kdeconnect.enable = true;
 programs.steam.enable = true;
 }

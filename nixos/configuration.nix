@@ -3,6 +3,7 @@
   imports = [
       ./hardware-configuration.nix
       ./modules/boot.nix
+      ./modules/systemd.nix
       ./modules/locale.nix
       ./modules/packages.nix 
       ./modules/services.nix
