@@ -1,0 +1,56 @@
+{ pkgs, inputs, ... }:
+{
+    home.packages = with pkgs; [
+     fd
+     proton-vpn-cli
+      nautilus
+      portablemc
+      wayvnc
+      wl-clipboard
+      atop
+      gallery-dl
+      gamescope
+      gamemode
+      clang
+      mold
+      cargo-generate
+      radeontop
+      nh
+      flatpak
+      jdk17
+      apktool
+      parted
+      gparted
+      dust
+      duf
+      nvd
+      veracrypt
+      ffmpeg
+      file
+      yazi
+      tree
+      jq
+      tmux
+      chameleos
+      mpv
+      btop
+      fastfetch
+      materialgram
+      librewolf
+      zoxide
+      eza
+      aria2
+      foot
+      bibata-cursors
+      nwg-look
+      papirus-icon-theme
+      noctalia-shell
+      noctalia-qs
+      rustup 
+      lutris
+      p7zip
+      alsa-lib
+      inputs.niux.packages.${pkgs.system}.default 
+      home-manager
+    ];
+}
