@@ -3,19 +3,20 @@
     services.swaync = {
   enable = true;
   
-  # Настройки самого конфига (автоматически конвертируются в config.json)
   settings = {
     positionX = "left";
     positionY = "bottom";
     layer = "overlay";
     control-center-layer = "overlay";
     layer-shell = true;
-    cssPriority = "application";
+
+    "layer-shell-cover-screen" = false;
     
+    fit-to-screen = false;
     control-center-margin-top = 10;
     control-center-margin-bottom = 10;
     control-center-margin-right = 10;
-    control-center-margin-left = 10;
+    control-center-margin-left = 0;
     
     notification-icon-size = 64;
     notification-body-image-height = 100;
@@ -25,31 +26,65 @@
     timeout-low = 2;
     timeout-critical = 0;
     
-    fit-to-screen = true;
-    control-center-width = 500;
-    control-center-height = 600;
+    control-center-width = 400;
+    control-center-height = 1000;
     notification-window-width = 500;
     keyboard-shortcuts = true;
     image-visibility = "always";
     transition-time = 200;
     hide-on-clear = true;
     hide-on-touch = true;
+
+    cssPriority = "application";
     
     widgets = [
       "title"
       "dnd"
+      "menubar#top"
       "notifications"
+      "mpris"
+      "menubar#bottom"
     ];
     
     widget-config = {
       title = {
-        text = "Notifications";
+        text = "Nya~";
         clear-all-button = true;
-        button-text = "Clear all";
+        button-text = "Clear All";
       };
       dnd = {
-        text = "Do Not Disturb";
+        text = "Don't touch me please";
       };
+      mpris = {
+          image-size = 96;
+          image-radius = 12;
+      };
+      "menubar#top" = {
+          "buttons#system" = {
+              position = "left";
+              actions = [
+           {
+               label = "󰍬";
+               command = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+           }
+          ];
+          };
+      };
+    "menubar#bottom" = {
+        "buttons#system" = {
+            position = "left";
+            actions = [
+            {
+               label = "⏻";
+               command = "systemctl poweroff";
+            }
+            {
+               label = "󰜉";
+               command = "systemctl reboot";
+            }
+            ];
+        };
+    };
     };
   };
 
@@ -109,6 +144,56 @@
     }
     .widget-dnd switch:checked {
       background: #a6e3a1;
+    }
+    .widget-mpris {
+      background: rgba(49, 50, 68, 0.4);
+      padding: 12px;
+      margin: 6px;
+      border-radius: 12px;
+    }
+    .widget-mpris-player {
+      padding: 6px;
+      margin: 2px;
+    }
+    .widget-mpris-title {
+      font-weight: bold;
+      color: #cdd6f4;
+    }
+    .widget-mpris-subtitle {
+      color: #a6adc8;
+    }
+    .widget-mpris-controller button {
+      background: transparent;
+      color: #cdd6f4;
+    }
+    .widget-mpris-controller button:hover {
+      color: #89b4fa;
+    }
+
+    .widget-menubar {
+      background: transparent;
+      padding: 0;
+      margin: 6px;
+    }
+    .widget-menubar button {
+        min-width: 60px;
+        min-height: 50px;
+        background: rgba(49, 50, 68, 0.5);
+        border-radius: 12px;
+        margin: 4px;
+        padding: 8px;
+        transition: all 0.2s ease-in-out;
+    }
+    .widget-menubar button:hover {
+        background: rgba(137, 180, 250, 0.2);
+        color: #89b4fa;
+    }
+    .widget-menubar button label {
+        font-size: 18px;
+    }
+    .widget-menubar button:first-child:hover {
+        background: rgba(243, 139, 168, 0.2);
+        color: #f38ba8;
     }
   '';
 };
