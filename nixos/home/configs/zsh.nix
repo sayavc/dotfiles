@@ -14,6 +14,7 @@
         export PATH="$HOME/.local/bin:$PATH"
         export PATH="$HOME/.cargo/bin:$PATH"
         eval "$(zoxide init zsh)"
+        eval "$(direnv hook zsh)"
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         autoload -U compinit && compinit
         zstyle ':completion:*' menu select

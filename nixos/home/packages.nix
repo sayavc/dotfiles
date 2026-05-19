@@ -1,13 +1,24 @@
 { pkgs, inputs, ... }:
 {
     home.packages = with pkgs; [
-     fd
-     proton-vpn-cli
+      libnotify
+      ada
+      flake-edit
+      tokei
+      awww
+      sshfs
+      ffmpeg
+      mpvpaper
+      imagemagick
+      wtype
+      pipx
+      python312
+      fd
+      proton-vpn-cli
       nautilus
       portablemc
       wayvnc
       wl-clipboard
-      atop
       gallery-dl
       gamescope
       gamemode
@@ -15,7 +26,6 @@
       mold
       cargo-generate
       radeontop
-      nh
       flatpak
       jdk17
       apktool
@@ -29,7 +39,6 @@
       file
       yazi
       tree
-      jq
       tmux
       chameleos
       mpv
@@ -44,13 +53,18 @@
       bibata-cursors
       nwg-look
       papirus-icon-theme
-      noctalia-shell
-      noctalia-qs
       rustup 
       lutris
       p7zip
       alsa-lib
       inputs.niux.packages.${pkgs.system}.default 
       home-manager
+      (inputs.quickshell.packages.${pkgs.system}.default.withModules [
+      pkgs.kdePackages.qtmultimedia
+      pkgs.ffmpeg
+      pkgs.gst_all_1.gst-plugins-good
+      pkgs.gst_all_1.gst-libav
+      ])
+      #end
     ];
 }

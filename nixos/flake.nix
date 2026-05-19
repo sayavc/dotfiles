@@ -26,15 +26,27 @@
         url = "github:sodiboo/niri-flake";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    walker = {
+        url = "github:abenz1267/walker";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.elephant.follows = "elephant";
+    };
     xwayland-satellite = {
         url = "github:Supreeeme/xwayland-satellite";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    quickshell = {
+        url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+    elephant = {
+        url = "github:abenz1267/elephant";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { nixpkgs, home-manager, nix-cachyos-kernel, nur, niux, niri, xwayland-satellite, ... }: {
+  outputs = { nixpkgs, home-manager, nur, niux, niri, xwayland-satellite, walker, quickshell, ... }: {
     nixosConfigurations.saya-nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit xwayland-satellite; };
@@ -44,7 +56,6 @@
         ({ pkgs, ...}: { nixpkgs.overlays = [ niri.overlays.niri ]; })
         {
           nixpkgs.overlays = [ 
-          nix-cachyos-kernel.overlays.default
           nur.overlays.default 
           ];
         }
@@ -52,8 +63,11 @@
     };
     homeConfigurations.saya = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inputs = { inherit niux; }; };
-        modules = [ ./home/default.nix ];
+        extraSpecialArgs = { inputs = { inherit niux quickshell; }; };
+        modules = [ 
+        ./home/default.nix
+        walker.homeManagerModules.default
+        ];
     };
   };
 }

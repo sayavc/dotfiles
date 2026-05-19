@@ -8,6 +8,7 @@ systemd.services.sddm-random-theme = {
      random_theme=''${themes[$RANDOM % ''${#themes[@]}]}
      mkdir -p /etc/sddm.conf.d 
      echo -e "[Theme]\nCurrent=$random_theme" > /etc/sddm.conf.d/random-theme.conf
+     echo -n "$random_theme" > /tmp/current_sddm_theme
   '';
   serviceConfig = {
     Type = "oneshot";

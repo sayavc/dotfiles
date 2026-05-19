@@ -7,12 +7,10 @@ binds {
 
         // Applications
         Alt+T                                                      { spawn "foot"; }
-        Alt+Space                                                  { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-        Mod+F1                                                     { spawn-sh "noctalia-shell ipc call notifications toggleDND"; }
+        Alt+Space                                                  { spawn "nc" "-U" "/run/user/1000/walker/walker.sock"; }
+        Mod+F1                                                     { spawn "swaync-client" "-t" "-sw"; }
+        Mod+F2                                                     { spawn "swaync-client" "-d" "-sw"; }
         Mod+B                                                      { spawn "librewolf"; }
-        Mod+L                                                      { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
-        Mod+Shift+Q                                                { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
-        Mod+W                                                      { spawn "sh" "-c" "noctalia-shell ipc call wallpaper toggle"; }
         XF86Back                                                   { spawn "librewolf"; }
         XF86Forward                                                { spawn "lutris"; }
         Cancel                                                     { spawn "materialgram"; }
@@ -23,19 +21,10 @@ binds {
 
         Mod+P {spawn "/home/saya/.local/bin/pavucontrol-dark"; } // Just dark pavucontrol
 
-         // Media Controls PS: copy+paste lol  
-         XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume increase"; }
-         XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume decrease"; }
-         XF86AudioMute                       allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
-         XF86AudioMicMute                    allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume muteInput"; }
-         XF86AudioNext                       allow-when-locked=true { spawn-sh "noctalia-shell ipc call media next"; }
-         XF86AudioPrev                       allow-when-locked=true { spawn-sh "noctalia-shell ipc call media previous"; }
-         XF86AudioPlay                       allow-when-locked=true { spawn-sh "noctalia-shell ipc call media playPause"; }
-         XF86AudioPause                      allow-when-locked=true { spawn-sh "noctalia-shell ipc call media playPause"; }
-
-         // ─── Brightness Controls ───
-         XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
-         XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness decrease"; }
+         // Media Controls 
+         XF86AudioRaiseVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+         XF86AudioLowerVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+         XF86AudioMute                       allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
 
          // Window controls 
          Mod+Q { close-window; }
@@ -119,8 +108,4 @@ binds {
          // Power 
          Ctrl+Alt+Delete                                            { quit; } // Quit session
          Mod+Shift+X                                                { power-off-monitors; } // to watch obscenities 
-
-         // Noctalia-shell plugins keybinds 
-         // Clpper 
-         Mod+V                                                      { spawn-sh "noctalia-shell ipc call plugin:clipper toggle"; }
 }

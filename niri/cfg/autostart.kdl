@@ -1,2 +1,2 @@
+    spawn-sh-at-startup "awww-daemon"
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &"
-    spawn-sh-at-startup "noctalia-shell"

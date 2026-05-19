@@ -1,6 +1,8 @@
 { config, lib, pkgs, xwayland-satellite, ... }:
 {
 environment.systemPackages = with pkgs; [
+     qt6.qtshadertools
+     qt6.qt5compat
      proton-vpn-cli
      ntfs3g
      wget
@@ -12,22 +14,24 @@ environment.systemPackages = with pkgs; [
      python3
      imagemagick
      pkgs.kdePackages.kde-gtk-config
-     kdePackages.qt5compat
      gcc
      appimage-run
-     icu
      xwayland-satellite.packages.${pkgs.system}.default
    ];
 environment.variables = {
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "24";
 };
+environment.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+};
 environment.etc."sddm/themes/qylock" = {
     source = pkgs.fetchFromGitHub {
         owner = "Darkkal44";
         repo = "qylock";
-        rev = "main";
-        hash = "sha256-DHHQXBxz9bUS7kogFyFiXYRCK88VBduuJQlEUO+oTMI=";
+        rev = "6946b53626b4f3c1507ae9a78c287411df5fb36c";
+        hash = "sha256-79SHhz9ATD5ZpOjmOyoVZSrqstddJOfHrs+Drw4nvk0=";
+        fetchSubmodules = true;
     };
 };
 }
