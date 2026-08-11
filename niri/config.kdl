@@ -1,5 +1,5 @@
 include "./cfg/autostart.kdl"
-include "./cfg/keybinds.kdl"
+include "./cfg/keybinds_mod.kdl"
 include "./cfg/input.kdl"
 include "./cfg/display.kdl"
 include "./cfg/layout.kdl"

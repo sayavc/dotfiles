@@ -1,17 +1,45 @@
 { pkgs, inputs, ... }:
 {
     home.packages = with pkgs; [
+      android-tools
+      rustup
+      cargo-clone
+      ffmpeg
+      fluffychat
+      ouch
+      amdgpu_top
+      dust
+      bubblewrap
+      jq
+      wineWow64Packages.full
+      usbutils
+      cyme
+      wl-clipboard
+      catppuccin-qt5ct
+      mpvpaper
+      yt-dlp
+      librewolf
+      _7zz-rar
+      scrcpy
+      qpwgraph
+      wakatime-cli
+      awatcher
+      obsidian
+      innoextract
+      imv
+      sd
+      ripgrep
+      bat
+      procs
+      vulkan-tools
+      winetricks
       libnotify
-      ada
       flake-edit
       tokei
       awww
-      sshfs
-      ffmpeg
       mpvpaper
       imagemagick
       wtype
-      pipx
       python312
       fd
       proton-vpn-cli
@@ -25,17 +53,13 @@
       clang
       mold
       cargo-generate
-      radeontop
       flatpak
       jdk17
-      apktool
       parted
       gparted
-      dust
       duf
       nvd
       veracrypt
-      ffmpeg
       file
       yazi
       tree
@@ -45,7 +69,6 @@
       btop
       fastfetch
       materialgram
-      librewolf
       zoxide
       eza
       aria2
@@ -53,11 +76,11 @@
       bibata-cursors
       nwg-look
       papirus-icon-theme
-      rustup 
       lutris
-      p7zip
       alsa-lib
+      inputs.rip2.packages.${pkgs.system}.default
       inputs.niux.packages.${pkgs.system}.default 
+      inputs.concord.packages.${pkgs.system}.default
       home-manager
       (inputs.quickshell.packages.${pkgs.system}.default.withModules [
       pkgs.kdePackages.qtmultimedia
@@ -65,6 +88,10 @@
       pkgs.gst_all_1.gst-plugins-good
       pkgs.gst_all_1.gst-libav
       ])
-      #end
+#end
+    ];
+    nixpkgs.config.permittedInsecurePackages = [
+        "librewolf-151.0.2-1"
+        "librewolf-unwrapped-151.0.2-1"
     ];
 }

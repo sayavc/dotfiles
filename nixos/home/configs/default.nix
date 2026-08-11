@@ -4,6 +4,7 @@
     ./git.nix 
     ./zsh.nix 
     ./swaync.nix
-    ./walker.nix
+    ./sway.nix
+    ./trash.nix
     ];
 }

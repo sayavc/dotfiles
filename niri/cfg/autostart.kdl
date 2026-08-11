@@ -1,2 +1,5 @@
-    spawn-sh-at-startup "awww-daemon"
-    spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &"
+spawn-sh-at-startup "awww-daemon"
+//spawn-at-startup "mpvpaper" "-fp" "-o" "hwdec=vaapi loop no-audio" "*" "/home/saya/Videos/wallpapers/miku_optimized.mp4"
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &"
+spawn-sh-at-startup "awatcher"
+spawn-sh-at-startup "tmux new-session -d -s 999 /home/saya/.local/bin/endcord"

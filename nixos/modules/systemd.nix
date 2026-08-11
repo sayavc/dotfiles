@@ -16,4 +16,12 @@ systemd.services.sddm-random-theme = {
   };
   path = [ pkgs.bash ];
 };
+systemd.tmpfiles.rules = [
+  "d /run/firejail 0755 root root -"
+  "Z /run/firejail 0755 root root -"
+  "A+ /home/saya-games - - - - u:saya:rwx"
+  "A+ /home/saya-games - - - - d:u:saya:rwx"
+  "A+ /home/saya-games - - - - m::rwx"
+  "A+ /home/saya-games - - - - d:m::rwx"
+];
 }

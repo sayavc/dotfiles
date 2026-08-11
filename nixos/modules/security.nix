@@ -7,4 +7,13 @@ security.doas.extraRules = [{
     keepEnv = true;
     persist = true;
 }];
+security.doas.extraConfig = ''
+  permit nopass keepenv saya as saya-games cmd /etc/profiles/per-user/saya-games/bin/lutris
+'';
+security.wrappers.firejail = {
+    source = "${pkgs.firejail.out}/bin/firejail";
+    owner = "root";
+    group = "root";
+    setuid = true;
+};
 }

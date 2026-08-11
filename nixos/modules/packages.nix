@@ -1,6 +1,7 @@
 { config, lib, pkgs, xwayland-satellite, ... }:
 {
 environment.systemPackages = with pkgs; [
+     cage
      qt6.qtshadertools
      qt6.qt5compat
      proton-vpn-cli
@@ -9,7 +10,6 @@ environment.systemPackages = with pkgs; [
      neovim
      nix-search-cli
      git
-     sddm-astronaut
      adw-gtk3
      python3
      imagemagick
@@ -17,6 +17,7 @@ environment.systemPackages = with pkgs; [
      gcc
      appimage-run
      xwayland-satellite.packages.${pkgs.system}.default
+#end
    ];
 environment.variables = {
     XCURSOR_THEME = "Bibata-Modern-Classic";

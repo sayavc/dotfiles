@@ -8,11 +8,13 @@ binds {
         Alt+Space                                                  { spawn "nc" "-U" "/run/user/1000/walker/walker.sock"; }
         Mod+F1                                                     { spawn "swaync-client" "-t" "-sw"; }
         Mod+F2                                                     { spawn "swaync-client" "-d" "-sw"; }
-        Mod+B                                                      { spawn "librewolf"; }
+        Mod+F3                                                     { spawn-sh "notify-send -a \"Clock\" -t 3000 \"$(date +'%H:%M')\n$(date +'%d %b')\""; }
         XF86Back                                                   { spawn "librewolf"; }
         XF86Forward                                                { spawn "lutris"; }
         Cancel                                                     { spawn "materialgram"; }
         XF86Reload                                                 { spawn "steam"; }
+        XF86HomePage                                               { spawn "fluffychat"; }
+        XF86Mail                                                   { spawn "~/scripts/niri-lock.sh"; }
 
 
         Mod+E {spawn "nautilus"; }

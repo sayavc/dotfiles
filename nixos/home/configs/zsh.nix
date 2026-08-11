@@ -27,6 +27,10 @@
         _saved_dir=""
         pin() { _saved_dir=$PWD; echo "pinned $_saved_dir" }
         jump() { [[ -z "$_saved_dir" ]] && echo "nothing pinned" && return; cd "$_saved_dir" }
+        egrep() {
+            echo "egrep: warning: egrep is obsolescent; using grep -E" >&2
+            grep -E "$@"
+        }
       '';
       plugins = [
         { name = "powerlevel10k"; src = pkgs.zsh-powerlevel10k; file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme"; }
@@ -38,8 +42,12 @@
           ls = "eza --icons=auto";
           sudo = "doas";
           lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
+          pc = "procs";
           aria = "aria2c --max-connection-per-server=16 --split=16";
+          lsusb = "cyme --lsusb";
+          glutris = "PULSE_SERVER=unix:/run/user/1000/pulse/native doas -u saya-games lutris";
           "minecraft-fabric_base" = ''portablemc --main-dir /home/saya/.minecraft/instances/fabric-base start fabric:1.20.5 -u Vazhniygoose --jvm-arg="-Xmx4G" --jvm-arg="-Xms2G" --jvm-arg="-XX:+UseG1GC"'';
+          "minecraft-create" = ''portablemc --main-dir /home/saya/.minecraft/instances/create start neoforge:1.21.1 -u Vazhniygoose --jvm-arg="-XmX4G" --jvm-arg"-Xms2G" --jvm-arg="-XX:+UseG1GC"'';
       };
     };
 }

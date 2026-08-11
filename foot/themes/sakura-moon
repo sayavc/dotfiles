@@ -1,0 +1,27 @@
+[colors-dark]
+background = 2d2428
+foreground = f3e5e5
+
+selection-background = f3a0c3
+selection-foreground = 2d2428
+
+cursor = 2d2428 fbcce7
+
+regular0 = 2d2428    # black 
+regular1 = e55d87    # red
+regular2 = 8fcfa7    # green
+regular3 = e8af7a    # yellow
+regular4 = 8cb2f2    # blue
+regular5 = f3a0c3    # magenta
+regular6 = 8ecfca    # cyan
+regular7 = d2bfc7    # white
+
+bright0  = 4a3a42    # bright black
+bright1  = ff7a9f    # bright red
+bright2  = a8ebd0    # bright green
+bright3  = ffd0a3    # bright yellow
+bright4  = b4cfff    # bright blue
+bright5  = fbcce7    # bright magenta
+bright6  = a8ebe5    # bright cyan
+bright7  = f3e5e5    # bright white
+

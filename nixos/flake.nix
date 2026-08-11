@@ -1,14 +1,16 @@
 {
   description = "saya's nixos config";
 
-   nixConfig = {
+  nixConfig = {
     extra-substituters = [
-      "https://attic.xuyh0120.win/lantian"
-      "https://cache.garnix.io"
+      "https://nix-community.cachix.org"
+      "https://niri.cachix.org"
+      "https://chaotic-nyx.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "niri.cachix.org-1:WGWzld6viVvuNyRKYrA0LJuURF530872E5RH9ywwIYU="
+      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
     ];
   };
 
@@ -26,11 +28,6 @@
         url = "github:sodiboo/niri-flake";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    walker = {
-        url = "github:abenz1267/walker";
-        inputs.nixpkgs.follows = "nixpkgs";
-        inputs.elephant.follows = "elephant";
-    };
     xwayland-satellite = {
         url = "github:Supreeeme/xwayland-satellite";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -39,14 +36,18 @@
         url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    elephant = {
-        url = "github:abenz1267/elephant";
+    rip2 = {
+        url = "github:MilesCranmer/rip2";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+    concord = {
+        url = "github:chojs23/concord";
         inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { nixpkgs, home-manager, nur, niux, niri, xwayland-satellite, walker, quickshell, ... }: {
+  outputs = { nixpkgs, home-manager, nur, niux, niri, xwayland-satellite, quickshell, rip2, concord, ... }: {
     nixosConfigurations.saya-nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit xwayland-satellite; };
@@ -63,11 +64,11 @@
     };
     homeConfigurations.saya = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inputs = { inherit niux quickshell; }; };
+        extraSpecialArgs = { inputs = { inherit niux quickshell rip2 concord; }; };
         modules = [ 
         ./home/default.nix
-        walker.homeManagerModules.default
         ];
     };
   };
 }
+

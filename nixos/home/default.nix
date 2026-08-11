@@ -7,6 +7,7 @@
 
     imports = [
     ./packages.nix
+    ./services.nix
     ./configs/default.nix 
     ];
     nixpkgs.overlays = import ./overlays.nix;
