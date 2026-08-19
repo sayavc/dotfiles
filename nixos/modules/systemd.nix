@@ -4,7 +4,7 @@ systemd.services.sddm-random-theme = {
     wantedBy = [ "display-manager.service" ];
     before = [ "display-manager.service" ];
     script = ''
-     themes=(dog-samurai nier-automata enfield forest last-of-us ninja_gaiden pixel-coffee pixel-dusk-city pixel-emerald pixel-hollowknight pixel-night-city R1999_1 star-rail sword wuwa)
+     themes=(dog-samurai nier-automata enfield forest last-of-us R1999_1 R1999_2 star-rail sword wuwa)
      random_theme=''${themes[$RANDOM % ''${#themes[@]}]}
      mkdir -p /etc/sddm.conf.d 
      echo -e "[Theme]\nCurrent=$random_theme" > /etc/sddm.conf.d/random-theme.conf
@@ -19,6 +19,9 @@ systemd.services.sddm-random-theme = {
 systemd.tmpfiles.rules = [
   "d /run/firejail 0755 root root -"
   "Z /run/firejail 0755 root root -"
+
+  "z /home/saya-games 0770 saya-games users -"
+  "A+ /home/saya-games - - - - u:saya:rwx,m::rwx"
   "A+ /home/saya-games - - - - u:saya:rwx"
   "A+ /home/saya-games - - - - d:u:saya:rwx"
   "A+ /home/saya-games - - - - m::rwx"

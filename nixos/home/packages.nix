@@ -88,6 +88,7 @@
       pkgs.gst_all_1.gst-plugins-good
       pkgs.gst_all_1.gst-libav
       ])
+      pavucontrol
 #end
     ];
     nixpkgs.config.permittedInsecurePackages = [

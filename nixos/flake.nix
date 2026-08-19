@@ -25,7 +25,8 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
-        url = "github:sodiboo/niri-flake";
+        #url = "github:sodiboo/niri-flake";
+        url = "github:bugeats/niri-flake/7e196a5ce0bf209d3aca844bb31edce5284d6484";
         inputs.nixpkgs.follows = "nixpkgs";
     };
     xwayland-satellite = {
