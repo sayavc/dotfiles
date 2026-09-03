@@ -9,7 +9,7 @@
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "niri.cachix.org-1:WGWzld6viVvuNyRKYrA0LJuURF530872E5RH9ywwIYU="
+      "niri.cachix.org-1:Wv00m07PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
     ];
   };
@@ -58,13 +58,21 @@
         ({ pkgs, ...}: { nixpkgs.overlays = [ niri.overlays.niri ]; })
         {
           nixpkgs.overlays = [ 
+	  niri.overlays.niri
           nur.overlays.default 
           ];
         }
       ];
     };
     homeConfigurations.saya = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = import nixpkgs {
+	    system = "x86_64-linux";
+	    config.allowUnfree = true;
+	    overlays = [
+	    niri.overlays.niri
+	    nur.overlays.default
+	    ];
+	};
         extraSpecialArgs = { inputs = { inherit niux quickshell rip2 concord; }; };
         modules = [ 
         ./home/default.nix

@@ -3,28 +3,34 @@
 
 binds {
 
-        // Applications
-        Alt+T                                                      { spawn "foot"; }
-        Alt+Space                                                  { spawn "nc" "-U" "/run/user/1000/walker/walker.sock"; }
-        Mod+F1                                                     { spawn "swaync-client" "-t" "-sw"; }
-        Mod+F2                                                     { spawn "swaync-client" "-d" "-sw"; }
-        Mod+F3                                                     { spawn-sh "notify-send -a \"Clock\" -t 3000 \"$(date +'%H:%M')\n$(date +'%d %b')\""; }
-        XF86Back                                                   { spawn "librewolf"; }
-        XF86Forward                                                { spawn "lutris"; }
-        Cancel                                                     { spawn "materialgram"; }
-        XF86Reload                                                 { spawn "steam"; }
-        XF86HomePage                                               { spawn "fluffychat"; }
-        XF86Mail                                                   { spawn "~/scripts/niri-lock.sh"; }
+         // Applications
+         Alt+T                                                      { spawn "foot"; }
+         Alt+Space                                                  { spawn "nc" "-U" "/run/user/1000/walker/walker.sock"; }
+         Mod+F1                                                     { spawn "swaync-client" "-t" "-sw"; }
+         Mod+F2                                                     { spawn "swaync-client" "-d" "-sw"; }
+         Mod+F3                                                     { spawn-sh "notify-send -a \"Clock\" -t 3000 \"$(date +'%H:%M')\n$(date +'%d %b')\""; }
+         Alt+F1                                                     { spawn "librewolf"; }
+         Alt+F2                                                     { spawn "lutris"; }
+         Alt+F3                                                     { spawn "Telegram"; }
+         Alt+F4                                                     { spawn "steam"; }
+         Alt+F5                                                     { spawn "fluffychat"; }
+         Alt+F6                                                     { spawn "~/scripts/niri-lock.sh"; }
+         Mod+L                                                      { spawn "~/scripts/touchpad.sh"; }
+         Mod+Alt+L                                                  { spawn "sh" "-c" "QML2_IMPORT_PATH=/run/current-system/sw/lib/qt-6/qml /etc/sddm/themes/qylock/quickshell-lockscreen/lock.sh \"$(cat /tmp/current_sddm_theme)\""; }
+ 
 
+         Mod+E {spawn "nautilus"; }
 
-        Mod+E {spawn "nautilus"; }
-
-        Mod+P {spawn "/home/saya/.local/bin/pavucontrol-dark"; } // Just dark pavucontrol
+         Mod+P {spawn "pavucontrol"; } // Just dark pavucontrol
 
          // Media Controls 
-         XF86AudioRaiseVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
-         XF86AudioLowerVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+         XF86AudioRaiseVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%+"; }
+         XF86AudioLowerVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%-"; }
          XF86AudioMute                       allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+
+         // Brightness Controls
+         XF86MonBrightnessUp                 allow-when-locked=true { spawn "brightnessctl" "set" "1%+"; }
+         XF86MonBrightnessDown               allow-when-locked=true { spawn "brightnessctl" "set" "1%-"; }
 
          // Window controls 
          Mod+Q { close-window; }

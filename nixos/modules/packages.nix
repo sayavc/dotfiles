@@ -4,7 +4,6 @@ environment.systemPackages = with pkgs; [
      cage
      qt6.qtshadertools
      qt6.qt5compat
-     proton-vpn-cli
      ntfs3g
      wget
      neovim

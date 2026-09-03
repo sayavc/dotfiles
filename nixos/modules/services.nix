@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-    services.udev.extraRules = ''
-        ACTION=="add", SUBSYSTEM=="drm", KERNEL=="card[0-9]*", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_performance_level}="high"
-    '';
-    
     services.pipewire = {
         enable = true;
         pulse.enable = true;
@@ -35,6 +31,7 @@
     services.logind.settings.Login = {
         HandlePowerKey = "poweroff";
     };
+    services.fwupd.enable = true;
     services.keyd = {
         enable = true;
         keyboards.default = {
@@ -95,20 +92,5 @@
         };
     };
     services.openssh.enable = true;
-    services.wakapi = {
-        enable = true;
-
-        environmentFiles = [ "/home/saya/private/wakapi" ];
-        database = {
-            dialect = "sqlite3";
-            name = "wakapi.db";
-        };
-
-        settings = {
-            server = {
-                listen = "127.0.0.1:3000";
-                public_url = "http://localhost:3000";
-            };
-        };
-    };
+    services.power-profiles-daemon.enable = true;
 }

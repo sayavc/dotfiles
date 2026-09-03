@@ -1,0 +1,30 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            options "grp:caps_toggle,caps:none"
+        }
+        numlock
+    }
+    mouse {
+	accel-speed 0.5
+	accel-profile "flat"
+
+    }
+    touchpad {
+    off
+    tap
+	natural-scroll
+	dwt
+	accel-speed 0.3
+	accel-profile "adaptive"
+	scroll-method "two-finger"
+    }
+    focus-follows-mouse max-scroll-amount="0%"
+
+}
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 12
+    hide-when-typing
+}

@@ -9,7 +9,6 @@
       ouch
       amdgpu_top
       dust
-      bubblewrap
       jq
       wineWow64Packages.full
       usbutils
@@ -68,7 +67,6 @@
       mpv
       btop
       fastfetch
-      materialgram
       zoxide
       eza
       aria2
@@ -89,10 +87,13 @@
       pkgs.gst_all_1.gst-libav
       ])
       pavucontrol
+      unzip
+      xmake
+      clang-tools
+      pandoc
 #end
-    ];
-    nixpkgs.config.permittedInsecurePackages = [
-        "librewolf-151.0.2-1"
-        "librewolf-unwrapped-151.0.2-1"
+      brightnessctl
+      telegram-desktop
+      easyeffects
     ];
 }

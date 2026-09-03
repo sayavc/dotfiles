@@ -41,12 +41,12 @@
       shellAliases = {
           ls = "eza --icons=auto";
           sudo = "doas";
-          lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
+          lofi = "mpv --no-video 'https://www.youtube.com/watch?v=rFZHOHl-L8A'";
           pc = "procs";
           aria = "aria2c --max-connection-per-server=16 --split=16";
           lsusb = "cyme --lsusb";
           glutris = "PULSE_SERVER=unix:/run/user/1000/pulse/native doas -u saya-games lutris";
-          "minecraft-fabric_base" = ''portablemc --main-dir /home/saya/.minecraft/instances/fabric-base start fabric:1.20.5 -u Vazhniygoose --jvm-arg="-Xmx4G" --jvm-arg="-Xms2G" --jvm-arg="-XX:+UseG1GC"'';
+          "minecraft-fabric_base" = ''portablemc --main-dir /home/saya/.minecraft/instances/fabric-base start fabric:1.20.5 -u Vazhniygoose --jvm-arg="-Xmx4G" --jvm-arg="-XX:+UseZGC" --jvm-arg="-XX:+ZGenerational"'';
           "minecraft-create" = ''portablemc --main-dir /home/saya/.minecraft/instances/create start neoforge:1.21.1 -u Vazhniygoose --jvm-arg="-XmX4G" --jvm-arg"-Xms2G" --jvm-arg="-XX:+UseG1GC"'';
       };
     };
