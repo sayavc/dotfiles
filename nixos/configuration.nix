@@ -14,7 +14,7 @@
         ./modules/programs.nix
         ./modules/binary-caches.nix
         ./.github_token.nix
-        #./modules/virtualisation.nix
+        ./modules/virtualisation.nix
     ];
     nixpkgs.overlays = import ./modules/overlays.nix;
     programs.nix-ld.enable = true;

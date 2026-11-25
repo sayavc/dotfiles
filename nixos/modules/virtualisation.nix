@@ -5,7 +5,6 @@
         qemu = {
             package = pkgs.qemu_kvm.override {
                 cephSupport = false;
-                glusterfsSupport = false;
                 libiscsiSupport = false;
                 smartcardSupport = false;
                 usbredirSupport = false;
@@ -17,4 +16,5 @@
             storage_driver = "dir"
         '';
     };
+        virtualisation.waydroid.enable = true;
 }

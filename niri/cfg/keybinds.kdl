@@ -9,14 +9,18 @@ binds {
          Mod+F1                                                     { spawn "swaync-client" "-t" "-sw"; }
          Mod+F2                                                     { spawn "swaync-client" "-d" "-sw"; }
          Mod+F3                                                     { spawn-sh "notify-send -a \"Clock\" -t 3000 \"$(date +'%H:%M')\n$(date +'%d %b')\""; }
-         Alt+F1                                                     { spawn "librewolf"; }
-         Alt+F2                                                     { spawn "lutris"; }
+         Alt+F1                                                     { spawn "zen-beta"; }
+         Alt+F2                                                     { spawn "lutris-isolated"; }
          Alt+F3                                                     { spawn "Telegram"; }
          Alt+F4                                                     { spawn "steam"; }
          Alt+F5                                                     { spawn "fluffychat"; }
          Alt+F6                                                     { spawn "~/scripts/niri-lock.sh"; }
-         Mod+L                                                      { spawn "~/scripts/touchpad.sh"; }
+         Mod+L                                                      { toggle-touchpad; }
          Mod+Alt+L                                                  { spawn "sh" "-c" "QML2_IMPORT_PATH=/run/current-system/sw/lib/qt-6/qml /etc/sddm/themes/qylock/quickshell-lockscreen/lock.sh \"$(cat /tmp/current_sddm_theme)\""; }
+
+         // Assistant
+         Home                                                       { spawn "systemctl" "--user" "kill" "-s" "SIGUSR1" "nyasa-stt.service"; }
+         End                                                        { spawn "systemctl" "--user" "kill" "-s" "SIGUSR1" "nyasa-daemon.service"; }
  
 
          Mod+E {spawn "nautilus"; }
@@ -44,6 +48,18 @@ binds {
          Alt+Shift+S                                                { move-column-right; }
          Alt+Shift+Z                                                { move-window-down-or-to-workspace-down; }
          Alt+Shift+X                                                { move-window-up-or-to-workspace-up; }
+
+         // Monitor controls (Move column to monitor)
+         Alt+Shift+Left                                             { move-column-to-monitor-left; }
+         Alt+Shift+Right                                            { move-column-to-monitor-right; }
+         Alt+Shift+Down                                             { move-column-to-monitor-down; }
+         Alt+Shift+Up                                               { move-column-to-monitor-up; }
+
+         // Monitor controls (Focus monitor)
+         Alt+Left                                                   { focus-monitor-left; }
+         Alt+Right                                                  { focus-monitor-right; }
+         Alt+Down                                                   { focus-monitor-down; }
+         Alt+Up                                                     { focus-monitor-up; }
 
          // Control Workspaces from numbers 
          Alt+1                                                      { focus-workspace 2; }
@@ -82,14 +98,14 @@ binds {
          Mod+Alt+F                                                  { toggle-windowed-fullscreen; }
 
          // Screenshots
-
-         Mod+Z                                                      { screenshot; }
-         Shift+Mod+Z                                                { screenshot-window; }
+         Mod+Z                                                      { screenshot-screen write-to-disk=false; }
+         Mod+X                                                      { screenshot; }
+         Shift+Mod+X                                                { screenshot-window write-to-disk=false; }
 
          // Panic
          Mod+Escape                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
          // Power 
          Ctrl+Alt+Delete                                            { quit; } // Quit session
-         Mod+Shift+X                                                { power-off-monitors; } // to watch obscenities 
+         Mod+Shift+Z                                                { power-off-monitors; } // to watch obscenities 
 }

@@ -43,9 +43,9 @@
           sudo = "doas";
           lofi = "mpv --no-video 'https://www.youtube.com/watch?v=rFZHOHl-L8A'";
           pc = "procs";
+          lutris-isolated = "bwrap --chdir /home/saya-games --bind / / --bind /home/saya-games/.home /home/saya --ro-bind /home/saya/.nix-profile /home/saya/.nix-profile --bind /home/saya-games /home/saya-games --ro-bind-try /home/saya/.config/gtk-3.0 /home/saya/.config/gtk-3.0 --ro-bind-try /home/saya/.config/gtk-4.0 /home/saya/.config/gtk-4.0 --ro-bind-try /home/saya/.config/dconf /home/saya/.config/dconf --ro-bind-try /home/saya/.gtkrc-2.0 /home/saya/.gtkrc-2.0 --ro-bind-try /home/saya/.icons /home/saya/.icons --ro-bind-try /home/saya/.themes /home/saya/.themes --ro-bind-try /home/saya/.local/share/icons /home/saya/.local/share/icons --ro-bind-try /home/saya/.local/share/themes /home/saya/.local/share/themes --dev-bind /dev /dev --proc /proc lutris";
           aria = "aria2c --max-connection-per-server=16 --split=16";
           lsusb = "cyme --lsusb";
-          glutris = "PULSE_SERVER=unix:/run/user/1000/pulse/native doas -u saya-games lutris";
           "minecraft-fabric_base" = ''portablemc --main-dir /home/saya/.minecraft/instances/fabric-base start fabric:1.20.5 -u Vazhniygoose --jvm-arg="-Xmx4G" --jvm-arg="-XX:+UseZGC" --jvm-arg="-XX:+ZGenerational"'';
           "minecraft-create" = ''portablemc --main-dir /home/saya/.minecraft/instances/create start neoforge:1.21.1 -u Vazhniygoose --jvm-arg="-XmX4G" --jvm-arg"-Xms2G" --jvm-arg="-XX:+UseG1GC"'';
       };

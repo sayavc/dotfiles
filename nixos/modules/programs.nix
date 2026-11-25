@@ -11,7 +11,7 @@ programs.direnv.nix-direnv.enable = true;
 programs.gpu-screen-recorder.enable = true;
 programs.niri = {
     enable = true;
-    package = pkgs.niri;
+    package = pkgs.niri-unstable;
 };
 programs.lazygit.enable = true;
 programs.kdeconnect.enable = true;

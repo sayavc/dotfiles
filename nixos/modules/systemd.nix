@@ -20,11 +20,21 @@ systemd.tmpfiles.rules = [
   "d /run/firejail 0755 root root -"
   "Z /run/firejail 0755 root root -"
 
-  "z /home/saya-games 0770 saya-games users -"
-  "A+ /home/saya-games - - - - u:saya:rwx,m::rwx"
-  "A+ /home/saya-games - - - - u:saya:rwx"
-  "A+ /home/saya-games - - - - d:u:saya:rwx"
-  "A+ /home/saya-games - - - - m::rwx"
-  "A+ /home/saya-games - - - - d:m::rwx"
+  "Z /home/saya-games 0770 saya-games users -"
+  "a+ /home/saya-games - - - - u:saya:rwx,g::rwx,m::rwx,d:u:saya:rwx,d:m::rwx" 
+  "w /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode - - - - 1"
 ];
+powerManagement.powertop.enable = true;
+
+systemd.services.powertop.postStart = ''
+  for f in /sys/bus/usb/devices/*/product; do
+    [ -f "$f" ] || continue
+    read -r prod < "$f"
+    case "$prod" in
+      *[Mm][Oo][Uu][Ss][Ee]*)
+        echo on > "''${f%/product}/power/control"
+        ;;
+    esac
+  done
+'';
 }

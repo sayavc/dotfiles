@@ -28,6 +28,7 @@
             };
         };
     };
+    services.upower.enable = true;
     services.logind.settings.Login = {
         HandlePowerKey = "poweroff";
     };
@@ -47,21 +48,6 @@
                     d = "right";
                 };
             };
-        };
-    };
-    services.yggdrasil = {
-        enable = true;
-
-        settings = {
-            Peers = [
-              "tcp://ip4.01.msk.ru.dioni.su:9002"
-              "tls://ip4.01.msk.ru.dioni.su:9003"
-              "tcp://45.147.200.202:12402"
-              "tls://vix.duckdns.org:36014"
-              "tcp://ygg-msk-1.averyan.ru:8363"
-              "tcp://vpn.itrus.su:7991"
-              "tls://vpn.itrus.su:7992"
-            ];
         };
     };
     services.flatpak.enable = true;

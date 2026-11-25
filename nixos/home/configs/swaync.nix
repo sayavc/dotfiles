@@ -41,6 +41,7 @@
                 "title"
                     "dnd"
                     "menubar#top"
+                    "menubar#wifi"
                     "notifications"
                     "mpris"
                     "menubar#bottom"
@@ -59,6 +60,7 @@
                     image-size = 96;
                     image-radius = 12;
                 };
+
                 "menubar#top" = {
                     "buttons#system" = {
                         position = "left";
@@ -67,9 +69,38 @@
                             label = "󰍬";
                             command = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
                         }
+                        {
+                            label = "󰓅";
+                            command = "powerprofilesctl set performance && notify-send 'mode is changed to performance'";
+                        }
+                        {
+                            label = "󰂁";
+                            command = "powerprofilesctl set power-saver && notify-send 'mode is changed to power-saver'";
+                        }
+                        {
+                            label = "󰘳";
+                            command = "powerprofilesctl set balanced && notify-send 'mode is changed to balanced'";
+                        }
                         ];
                     };
                 };
+
+                "menubar#wifi" = {
+                    "buttons#wifi" = {
+                        position = "left";
+                        actions = [
+                        {
+                            label = "󰖩󰒲";
+                            command = "doas /run/current-system/sw/bin/iw dev wlp2s0 set power_save on && notify-send 'Wi-Fi: power_save ON'";
+                        }
+                        {
+                            label = "󰖩󰉁";
+                            command = "doas /run/current-system/sw/bin/iw dev wlp2s0 set power_save off && notify-send 'Wi-Fi: performance (power_save OFF)'";
+                        }
+                        ];
+                    };
+                };
+
                 "menubar#bottom" = {
                     "buttons#system" = {
                         position = "left";

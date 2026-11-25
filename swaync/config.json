@@ -1,0 +1,104 @@
+{
+  "control-center-height": 1000,
+  "control-center-layer": "overlay",
+  "control-center-margin-bottom": 10,
+  "control-center-margin-left": 0,
+  "control-center-margin-right": 10,
+  "control-center-margin-top": 10,
+  "control-center-width": 400,
+  "cssPriority": "application",
+  "fit-to-screen": false,
+  "hide-on-clear": true,
+  "hide-on-touch": true,
+  "image-visibility": "always",
+  "keyboard-shortcuts": true,
+  "layer": "overlay",
+  "layer-shell": true,
+  "layer-shell-cover-screen": false,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "notification-icon-size": 64,
+  "notification-window-width": 500,
+  "positionX": "left",
+  "positionY": "bottom",
+  "timeout": 3,
+  "timeout-critical": 0,
+  "timeout-low": 2,
+  "transition-time": 200,
+  "widget-config": {
+    "dnd": {
+      "text": "Don't touch me please"
+    },
+    "menubar#bottom": {
+      "buttons#system": {
+        "actions": [
+          {
+            "command": "systemctl poweroff",
+            "label": "⏻"
+          },
+          {
+            "command": "systemctl reboot",
+            "label": "󰜉"
+          }
+        ],
+        "position": "left"
+      }
+    },
+    "menubar#top": {
+      "buttons#system": {
+        "actions": [
+          {
+            "command": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+            "label": "󰍬"
+          },
+          {
+            "command": "powerprofilesctl set performance && notify-send 'mode is changed to performance'",
+            "label": "󰓅"
+          },
+          {
+            "command": "powerprofilesctl set power-saver && notify-send 'mode is changed to power-saver'",
+            "label": "󰂁"
+          },
+          {
+            "command": "powerprofilesctl set balanced && notify-send 'mode is changed to balanced'",
+            "label": "󰘳"
+          }
+        ],
+        "position": "left"
+      }
+    },
+    "menubar#wifi": {
+      "buttons#wifi": {
+        "actions": [
+          {
+            "command": "doas /run/current-system/sw/bin/iw dev wlp2s0 set power_save on && notify-send 'Wi-Fi: power_save ON'",
+            "label": "󰖩󰒲"
+          },
+          {
+            "command": "doas /run/current-system/sw/bin/iw dev wlp2s0 set power_save off && notify-send 'Wi-Fi: performance (power_save OFF)'",
+            "label": "󰖩󰉁"
+          }
+        ],
+        "position": "left"
+      }
+    },
+    "mpris": {
+      "image-radius": 12,
+      "image-size": 96
+    },
+    "title": {
+      "button-text": "Clear All",
+      "clear-all-button": true,
+      "text": "Nya~"
+    }
+  },
+  "widgets": [
+    "title",
+    "dnd",
+    "menubar#top",
+    "menubar#wifi",
+    "notifications",
+    "mpris",
+    "menubar#bottom"
+  ]
+}

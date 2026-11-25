@@ -16,6 +16,7 @@ environment.systemPackages = with pkgs; [
      gcc
      appimage-run
      xwayland-satellite.packages.${pkgs.system}.default
+     iw
 #end
    ];
 environment.variables = {

@@ -1,0 +1,24 @@
+[
+  {
+    "battery": {
+      "format": "BAT {capacity}%"
+    },
+    "clock": {
+      "format": "{:%H:%M}"
+    },
+    "cpu": {
+      "format": "CPU {usage}%"
+    },
+    "exclusive": false,
+    "layer": "top",
+    "modules-center": [
+      "clock"
+    ],
+    "modules-left": [
+      "cpu"
+    ],
+    "modules-right": [
+      "battery"
+    ]
+  }
+]

@@ -1,5 +1,9 @@
 binds {
-    XF86Mail                                                   { spawn "~/scripts/niri-unlock.sh"; }
+    Mod+F1                                                     { spawn "swaync-client" "-t" "-sw"; }
+    Mod+F2                                                     { spawn "swaync-client" "-d" "-sw"; }
+    Alt+F6                                                     { spawn "~/scripts/niri-unlock.sh"; }
+    Mod+F3                                                     { spawn-sh "notify-send -a \"Clock\" -t 3000 \"$(date +'%H:%M')\n$(date +'%d %b')\""; }
+    Mod+L                                                      { spawn "~/scripts/touchpad.sh"; }
     XF86AudioRaiseVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
     XF86AudioLowerVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
     XF86AudioMute                       allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }

@@ -1,0 +1,19 @@
+* {
+  font-family: monospace;
+  font-size: 14px;
+  color: #fbcce7;
+}
+
+window#waybar {
+    background: rgba(243, 160, 195, 0.18);
+}
+
+#cpu,
+#clock,
+#battery {
+    background: rgba(80, 45, 65, 0.55);
+
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 10px;
+}

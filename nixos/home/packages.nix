@@ -39,14 +39,12 @@
       mpvpaper
       imagemagick
       wtype
-      python312
       fd
       proton-vpn-cli
       nautilus
       portablemc
       wayvnc
       wl-clipboard
-      gallery-dl
       gamescope
       gamemode
       clang
@@ -79,6 +77,7 @@
       inputs.rip2.packages.${pkgs.system}.default
       inputs.niux.packages.${pkgs.system}.default 
       inputs.concord.packages.${pkgs.system}.default
+      inputs.zen-browser.packages.${pkgs.system}.default
       home-manager
       (inputs.quickshell.packages.${pkgs.system}.default.withModules [
       pkgs.kdePackages.qtmultimedia
@@ -91,6 +90,14 @@
       xmake
       clang-tools
       pandoc
+      socat
+      mangohud
+      aseprite
+      qalculate-gtk
+      spotify
+      bubblewrap
+      virt-manager
+      rocmPackages.rocminfo
 #end
       brightnessctl
       telegram-desktop

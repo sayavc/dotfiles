@@ -6,6 +6,7 @@
           "https://cache.nixos.org"
           "https://nix-community.cachix.org"
           "https://niri.cachix.org"
+          "https://niri-epireyn.cachix.org"
           "https://chaotic-nyx.cachix.org"
       ];
       trusted-public-keys = [
@@ -13,6 +14,7 @@
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
           "niri.cachix.org-1:WGWzld6viVvuNyRKYrA0LJuURF530872E5RH9ywwIYU="
           "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+          "niri-epireyn.cachix.org-1:bFf4iWp3/6a31aF4XmJ8F8Wz1u7E7rY8z="
       ];
   };
 }

@@ -21,12 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niux = {
-        url = "github:sayavc/niux";
+        url = "github:sayavc/niux/unstable";
         inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
-        #url = "github:sodiboo/niri-flake";
-        url = "github:bugeats/niri-flake/7e196a5ce0bf209d3aca844bb31edce5284d6484";
+        url = "github:epireyn/niri-flake";
+        inputs.niri-unstable.url = "github:YaLTeR/niri/e1dc654cf902cd7abdb1e69ffc2f8f099cd68936";
         inputs.nixpkgs.follows = "nixpkgs";
     };
     xwayland-satellite = {
@@ -45,10 +45,14 @@
         url = "github:chojs23/concord";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+        url = "git+https://github.com/0xc000022070/zen-browser-flake";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { nixpkgs, home-manager, nur, niux, niri, xwayland-satellite, quickshell, rip2, concord, ... }: {
+  outputs = { nixpkgs, home-manager, nur, niux, niri, xwayland-satellite, quickshell, rip2, concord, zen-browser, ... }: {
     nixosConfigurations.saya-nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit xwayland-satellite; };
@@ -73,7 +77,7 @@
 	    nur.overlays.default
 	    ];
 	};
-        extraSpecialArgs = { inputs = { inherit niux quickshell rip2 concord; }; };
+        extraSpecialArgs = { inputs = { inherit niux quickshell rip2 concord zen-browser; }; };
         modules = [ 
         ./home/default.nix
         ];
